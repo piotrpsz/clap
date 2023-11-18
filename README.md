@@ -41,7 +41,7 @@ auto clap = Clap("dirscanner v. 0.1",
                     .promarker("--dir")
 );
 ```
-Then, after starting the program, run:
+Then, after the program starts, call the <b>parse</b> function::
 ```c++
 int main(int argn, char* argv[]) {
     clap.parse(argn, argv);
@@ -49,3 +49,12 @@ int main(int argn, char* argv[]) {
     ...
 }
 ```
+And finally to get the parsing result:
+```c++
+    if (auto directory = clap["--dir"]; directory)
+        std::cout << *directory << '\n';
+
+    if (auto icase = clap["-i"]; icase)
+        std::cout << *icase << '\n';
+```
+When no value is given for the argument, it receives the logical value true (that it was in the call).
