@@ -149,6 +149,14 @@ int Clap::parse(int const argn, char const *const argv[]) noexcept {
     return 0;
 }
 
+std::optional<Arg> Clap::
+operator[](std::string const& name) const noexcept {
+    for (auto const& arg: data_)
+        if (arg.marker() == name || arg.promarker() == name)
+            return arg;
+
+    return {};
+}
 
 std::ostream& operator<<(std::ostream& s, Clap const& c) noexcept {
     fmt::print("{}\n", c.progname_);

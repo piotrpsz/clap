@@ -1,7 +1,7 @@
 #pragma once
 #include "argument.h"
 #include <vector>
-#include <any>
+#include <optional>
 #include <fmt/core.h>
 
 class Clap final {
@@ -20,7 +20,7 @@ public:
     }
 
     int parse(int argn, char const* const argv[]) noexcept;
-
+    std::optional<Arg> operator[](std::string const&) const noexcept;
 private:
     void add(std::string key, std::string value) noexcept;
 
