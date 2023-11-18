@@ -24,3 +24,28 @@ C++ library for analyzing program call arguments.
         <li>target_link_libraries(your_project_name PUBLIC clap)</li>
     </ul>
 </ol>
+
+## Example of use:
+First create a Clap object with the parameters you want:
+```c++
+auto clap = Clap("dirscanner v. 0.1",
+                 Arg()
+                    .marker("-i")
+                    .promarker("--icase")
+                    .ordef(false),
+                 Arg()
+                    .marker("-r")
+                    .promarker("--recursive"),
+                 Arg()
+                    .marker("-d")
+                    .promarker("--dir")
+);
+```
+Then, after starting the program, run:
+```c++
+int main(int argn, char* argv[]) {
+    clap.parse(argn, argv);
+    ...
+    ...
+}
+```
