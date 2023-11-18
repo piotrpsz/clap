@@ -1,5 +1,11 @@
 # clap
 C++ library for analyzing program call arguments.
+<ul>
+    <li>you can use single-letter (short) arguments in the call line, e.g. -i (ignore case) -r (recursive),</li>
+    <li>you can use longer arguments, e.g.: --icase, --resursive,</li>
+    <li>specifying the value of the argument: -d '/Users' or -d='/Users' or --dir '/Users' lub --dir='/Users',</li>
+    <li>if you have several arguments without values (-i and -r) you can combine them: -ir</li>
+</ul>
 
 ## dependencies:
 ### fmt library
