@@ -5,6 +5,7 @@ C++ library for analyzing program call arguments.
     <li>you can use longer arguments, e.g.: --icase, --resursive,</li>
     <li>specifying the value of the argument: -d '/Users' or -d='/Users' or --dir '/Users' lub --dir='/Users',</li>
     <li>if you have several arguments without values (-i and -r) you can combine them: -ir</li>
+    <li>the text value of the argument may contain spaces: <b>-t=</b><i>'ala ma kota'</i> or <b>--text</b> <i>'ala ma kota'</i></li>
 </ul>
 
 ## dependencies:
