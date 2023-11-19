@@ -21,7 +21,7 @@
 // SOFTWARE.
 #pragma once
 
-#include <iostream>
+#include   <iostream>
 #include <string>
 #include <optional>
 #include <variant>
@@ -75,6 +75,11 @@ public:
     Arg& index(int idx) noexcept {
         index_ = idx;
         return *this;
+    }
+
+    value_t const& value() const noexcept {
+        if (value_.index() != 0) return value_;
+        return default_;
     }
 
     // std::variant<std::monostate, bool, i64, f64, std::string>;
