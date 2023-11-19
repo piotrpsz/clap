@@ -41,10 +41,6 @@ public:
 
     int parse(int argn, char const* const argv[]) noexcept;
     std::optional<Arg> operator[](std::string const&) const noexcept;
-<<<<<<< HEAD
-
-=======
->>>>>>> tmp_x
 private:
     void add(std::string key, std::string value) noexcept;
 
