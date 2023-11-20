@@ -94,7 +94,10 @@ split(std::string const &text, char const delimiter) noexcept {
 /// \remark Dopuszczalny jest brak wartości (wstawiany True - jako znak że jest). \n
 ///         Dopuszczalny jest klucz jako zestaw (po jednym myślniku).
 void Clap::add(std::string key, std::string value) noexcept {
+    key = trim(key);
+    value = trim(value);
     auto is_long = key[0] == '-' && key[1] == '-';
+
 
     // Szukamy pełnego dopasowania.
     for (auto& arg: data_)
