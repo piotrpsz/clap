@@ -38,7 +38,7 @@ class Arg {
     std::string long_{};
     value_t value_{};
     value_t default_{};
-    std::string description_{};
+    std::string help_{};
     int index_{-1};
 public:
     Arg() = default;
@@ -76,6 +76,13 @@ public:
         index_ = idx;
         return *this;
     }
+    Arg& help(std::string text) noexcept {
+        help_ = std::move(text);
+        return *this;
+    }
+    std::string const& help() const noexcept {
+        return help_;
+    }
 
     value_t const& value() const noexcept {
         if (value_.index() != 0) return value_;
@@ -101,7 +108,7 @@ public:
                 , long_
                 , vstr(value_)
                 , vstr(default_)
-                , description_);
+                , help_);
     }
 
     friend std::ostream& operator<<(std::ostream& s, Arg const& a) noexcept;
